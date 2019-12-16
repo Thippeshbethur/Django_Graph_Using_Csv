@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FusionCharts || www.fusioncharts.com</title>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+   <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+  </head>
+  <body style="font-family:‘Helvetica Neue’, Arial; font-size: 16px;">
+      <h1>Charts using Django</h1>
+      <ol>	  
+          <form method="post" enctype="multipart/form-data" action="/fetching-json-data-from-url">
+          {% csrf_token %}
+          <input type="file"
+                 title="Upload excel file"
+                 name="excel_file"
+                 style="border: 1px solid black; padding: 5px;"
+                 required="required">
+          <p>
+              <select name="DrpValue">
+                  <option value="Linear Regression">Linear Regression</option>
+                  <option value="Logistic Regression">Logistic Regression</option>
+                  <option value="Decision Tree">Decision Tree</option>
+                  <option value="SVM">SVM</option>
+                  <option value="Naive Bayes">Naive Bayes</option>
+                  <option value="KNN">KNN</option>
+                  <option value="K-Means">K-Means</option>
+                  <option value="Random Forest">Random Forest</option>
+                  <option value="Dimensionality Reduction Algorithms">Dimensionality Reduction Algorithms</option>
+              </select>
+          <input type="submit"
+                 value="Upload" 
+                 style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;" onclick="enablegraph()">
+                </form>
+        
+      </ol>
+      <h3>{{ chartTitle|safe }}</h3>
+      <div id="chart-1">{{ output|safe }}</div>
+      <div id="chart-2">{{ output_2|safe }}</div>
+      <br/>
+  </body>
+</html>
