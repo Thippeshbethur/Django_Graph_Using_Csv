@@ -6,16 +6,20 @@
    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
   </head>
   <body style="font-family:‘Helvetica Neue’, Arial; font-size: 16px;">
-      <h1>Charts using Django</h1>
+      <h3>Upload the CSV And Algorithm to be used
+      </h3>
       <ol>	  
           <form method="post" enctype="multipart/form-data" action="/fetching-json-data-from-url">
           {% csrf_token %}
+          <p><h3>CSV File</h3></p>
+
           <input type="file"
                  title="Upload excel file"
                  name="excel_file"
                  style="border: 1px solid black; padding: 5px;"
                  required="required">
           <p>
+              <p><h3>Algorithm</h3></p>
               <select name="DrpValue">
                   <option value="Linear Regression">Linear Regression</option>
                   <option value="Logistic Regression">Logistic Regression</option>
@@ -34,8 +38,10 @@
         
       </ol>
       <h3>{{ chartTitle|safe }}</h3>
-      <div id="chart-1">{{ output|safe }}</div>
-      <div id="chart-2">{{ output_2|safe }}</div>
+      <div style="width: 70%;float: right;margin-top: -18%; margin-right: -10%; ">
+        <h3>{{ person }}</h3>
+        <img src="static/{{ person }}.png" alt="User Image"  style="width:100%;margin-left: -74px;margin-top: -19px;">       
+      </div>
       <br/>
   </body>
 </html>
