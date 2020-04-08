@@ -12,8 +12,6 @@ from ChartApp.fusioncharts import FusionCharts
 def chart(request):
   # Create an object for the column2d chart using the FusionCharts class constructor
   filename=request.FILES["excel_file"]
-  context=views.getdata(request)
-  # column2d = FusionCharts("bar3d", "ex1" , "1200", "600", "chart-1", "json",data)
-  
+  context=views.getdata(request)  
     # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
   return  render(request, 'catalogue.html',context)
